@@ -131,10 +131,26 @@ context('First suite', () => {
         cy.contains('Forms').click()
         cy.contains('Datepicker').click()
 
+        let date = new Date()
+        date.setDate(date.getDate() + 5)
+        let futureDay = date.getDate()
+        let futureMonth = date.toLocaleString('default', {month: 'short'})
+
         cy.contains('nb-card', 'Common Datepicker').find('input').then(input => {
                 cy.wrap(input).click()
-                cy.get('nb-calendar-picker').contains('17').click()
-                cy.wrap(input).invoke('prop', 'value').should('contain', 'Nov 17, 2020')
+                const selectDayFromCurrent = () => {
+                    cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttribute => {
+                        if(!dateAttribute.includes(futureMonth)) {
+                            cy.get('[data-name="chevron-right"]').click()
+                            selectDayFromCurrent()
+                        } else {
+                            cy.get('nb-calendar-day-picker [class="day-cell ng-star-inserted"]').contains(futureDay).click()
+                        }
+                    })
+                }
+                selectDayFromCurrent()
+                //cy.get('nb-calendar-picker').contains('17').click()
+                //cy.wrap(input).invoke('prop', 'value').should('contain', 'Nov 17, 2020')
         })
     })
 
