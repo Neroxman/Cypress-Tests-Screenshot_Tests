@@ -103,10 +103,14 @@ context('First suite', () => {
         //1
         cy.get('[for="exampleInputEmail1"]')
             .should('contain', 'Email address')
+            .should('have.class', 'label')
+            .and('have.text', 'Email address')
 
         //2
         cy.get('[for="exampleInputEmail1"]').then(label => {
             expect(label.text()).to.equal('Email address')
+            expect(label).to.have.class('label')
+            expect(label).to.have.text('Email address')
         })
         
         //3
@@ -149,9 +153,10 @@ context('First suite', () => {
         cy.contains('Datepicker').click()
 
         cy.contains('nb-card', 'Common Datepicker').find('input').then(input => {
-                cy.wrap(input).click()
-                let dateAssert = selectDayFromCurrent(300)
-                cy.wrap(input).invoke('prop', 'value').should('contain', dateAssert)
+            cy.wrap(input).click()
+            let dateAssert = selectDayFromCurrent(300)
+            cy.wrap(input).invoke('prop', 'value').should('contain', dateAssert)
+            cy.wrap(input).should('have.value', dateAssert)
         })
     })
 
@@ -275,7 +280,7 @@ context('First suite', () => {
 
     })
 
-    it.only('dialog box', () => {
+    it('dialog box', () => {
         cy.visit('http://localhost:4200')
         cy.contains('Tables & Data').click()
         cy.contains('Smart Table').click()
@@ -296,6 +301,6 @@ context('First suite', () => {
         //3
         cy.get('tbody tr').first().find('.nb-trash').click()
         cy.on('window:confirm', () => false )
-        
+
     })
 })
