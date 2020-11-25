@@ -127,30 +127,31 @@ context('First suite', () => {
     })
 
     it.only('assert property', () => {
+        const selectDayFromCurrent = (day) => {
+            let date = new Date()
+            date.setDate(date.getDate() + day)
+            let futureDay = date.getDate()
+            let futureMonth = date.toLocaleString('en-EN', {month: 'short'})
+            let dateAssert = futureMonth + ' ' + futureDay + ', ' + date.getFullYear()
+            cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttribute => {
+                if(!dateAttribute.includes(futureMonth)) {
+                    cy.get('[data-name="chevron-right"]').click()
+                    selectDayFromCurrent(day)
+                } else {
+                    cy.get('nb-calendar-day-picker [class="day-cell ng-star-inserted"]').contains(futureDay).click()
+                }
+            })
+           return dateAssert 
+        }
+
         cy.visit('http://localhost:4200')
         cy.contains('Forms').click()
         cy.contains('Datepicker').click()
 
-        let date = new Date()
-        date.setDate(date.getDate() + 5)
-        let futureDay = date.getDate()
-        let futureMonth = date.toLocaleString('default', {month: 'short'})
-
         cy.contains('nb-card', 'Common Datepicker').find('input').then(input => {
                 cy.wrap(input).click()
-                const selectDayFromCurrent = () => {
-                    cy.get('nb-calendar-navigation').invoke('attr', 'ng-reflect-date').then(dateAttribute => {
-                        if(!dateAttribute.includes(futureMonth)) {
-                            cy.get('[data-name="chevron-right"]').click()
-                            selectDayFromCurrent()
-                        } else {
-                            cy.get('nb-calendar-day-picker [class="day-cell ng-star-inserted"]').contains(futureDay).click()
-                        }
-                    })
-                }
-                selectDayFromCurrent()
-                //cy.get('nb-calendar-picker').contains('17').click()
-                //cy.wrap(input).invoke('prop', 'value').should('contain', 'Nov 17, 2020')
+                let dateAssert = selectDayFromCurrent(300)
+                cy.wrap(input).invoke('prop', 'value').should('contain', dateAssert)
         })
     })
 
