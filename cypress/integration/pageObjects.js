@@ -6,7 +6,7 @@ import { onSmartTablePage } from "../support/page_objects/smartTablePage"
 context('Test with Page Ocjects', () => {
 
     beforeEach('Open application', () => {
-        cy.visit('http://localhost:4200')
+        cy.openHomePage()
     })
 
     it('verify navigations across the pages', () => {
