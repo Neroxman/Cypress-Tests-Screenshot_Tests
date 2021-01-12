@@ -33,5 +33,6 @@ context('JSON objects', () => {
         console.log(mix.Students[0].firstName)
 
         const lastNameOfSecondStudent = mix.Students[1].lastName
+        
     })
 })
