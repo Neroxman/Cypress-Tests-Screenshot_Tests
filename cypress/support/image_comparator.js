@@ -1,5 +1,5 @@
 const mkdirp = require('mkdirp')
-const { marketingPageLinks } = require('./arrays.js')
+const { pageLinks } = require('./arrays.js')
 const fs = require('fs')
 const PNG = require('pngjs').PNG
 const pixelmatch = require('pixelmatch')
@@ -32,4 +32,4 @@ const runComparator = (platform, array) => {
     }
 }
 
-runComparator('website_pages', marketingPageLinks)
+runComparator('website_pages', pageLinks)

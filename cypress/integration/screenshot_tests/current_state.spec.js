@@ -1,4 +1,4 @@
-import { marketingPageLinks } from '../../../support/arrays.js'
+import { pageLinks } from '../../support/arrays.js'
 
 context('Current State', () => {
   before(() => {
@@ -7,7 +7,7 @@ context('Current State', () => {
   })
 
   it('Page current state screenshots', () => {
-    cy.currentScreenshot(marketingPageLinks)
+    cy.currentScreenshot(pageLinks)
   })
 
   it('Run image comparator', () => {

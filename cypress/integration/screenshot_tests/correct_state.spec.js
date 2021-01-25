@@ -1,5 +1,5 @@
 import { onlyOn } from '@cypress/skip-test'
-import { marketingPageLinks } from '../../support/arrays.js'
+import { pageLinks } from '../../support/arrays.js'
 import { format } from 'date-fns'
 
 const day = format(new Date(), "d")
@@ -17,7 +17,7 @@ onlyOn(start_test === true, () => {
     })
 
     it('Correct state page', () => {
-      cy.correctScreenshot(marketingPageLinks)
+      cy.correctScreenshot(pageLinks)
     })
   })
 })
