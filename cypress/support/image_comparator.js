@@ -32,5 +32,4 @@ const runComparator = (platform, array) => {
     }
 }
 
-runComparator('marketing_website', marketingPageLinks)
-runComparator('admin_panel', adminPanelPageLinks)
+runComparator('website_pages', marketingPageLinks)
