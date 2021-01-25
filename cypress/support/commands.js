@@ -11,7 +11,7 @@ Cypress.Commands.add('correctScreenshot', (array) => {
     for (const value of array) {
       cy.visit(value, { failOnStatusCode: false })
         .window()
-        .wait(5000)
+        .wait(3000)
         .screenshot('website_pages/' + lastWord(array[i]) + '_correct')
       i++
     }
@@ -22,7 +22,7 @@ Cypress.Commands.add('currentScreenshot', (array) => {
     for (const value of array) {
       cy.visit(value, { failOnStatusCode: false })
         .window()
-        .wait(5000)
+        .wait(3000)
         .screenshot('website_pages/' + lastWord(array[i]) + '_current')
       i++
     }
