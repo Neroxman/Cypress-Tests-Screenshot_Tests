@@ -75,7 +75,11 @@
     "tslib": "^1.9.0",
     "typeface-exo": "0.0.22",
     "web-animations-js": "github:angular/web-animations-js#release_pr208",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "capture-website": "^1.2.1",
+    "date-fns": "^2.16.1",
+    "mkdirp": "^1.0.4",
+    "pixelmatch": "^5.2.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.25",
@@ -107,6 +111,13 @@
     "ts-node": "3.2.2",
     "tslint": "^5.7.0",
     "tslint-language-service": "^0.9.9",
-    "typescript": "3.4.5"
+    "typescript": "3.4.5",
+    "@cypress/skip-test": "^2.5.0",
+    "@rckeller/cypress-unfetch": "^1.0.1",
+    "cross-env": "^7.0.2",
+    "cypress-file-upload": "^3.5.3",
+    "cypress-wait-until": "^1.6.1",
+    "moment": "^2.26.0",
+    "webpack": "^4.41.6"
   }
 }
