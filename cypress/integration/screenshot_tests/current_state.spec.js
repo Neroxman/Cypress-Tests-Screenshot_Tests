@@ -1,4 +1,4 @@
-//import { marketingPageLinks, adminPanelPageLinks } from '../../../support/arrays.js'
+import { marketingPageLinks } from '../../../support/arrays.js'
 
 context('Current State', () => {
   before(() => {

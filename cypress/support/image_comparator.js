@@ -1,5 +1,5 @@
 const mkdirp = require('mkdirp')
-const { marketingPageLinks, adminPanelPageLinks } = require('./arrays.js')
+const { marketingPageLinks } = require('./arrays.js')
 const fs = require('fs')
 const PNG = require('pngjs').PNG
 const pixelmatch = require('pixelmatch')
