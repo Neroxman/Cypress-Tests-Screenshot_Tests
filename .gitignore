@@ -32,6 +32,7 @@ testem.log
 /typings
 /docs
 cypress/screenshots
+cypress/support/screenshot_tests/difference/
 
 # e2e
 /e2e/*.js
