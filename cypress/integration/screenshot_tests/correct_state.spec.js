@@ -1,5 +1,5 @@
 import { onlyOn } from '@cypress/skip-test'
-import { marketingPageLinks } from '../../../support/arrays.js'
+import { marketingPageLinks } from '../../support/arrays.js'
 import { format } from 'date-fns'
 
 const day = format(new Date(), "d")
